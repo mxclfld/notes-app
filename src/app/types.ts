@@ -1,14 +1,29 @@
 import { ChangeEvent } from 'react'
 
-export interface Note {
+export interface EditedNote {
   id: string
   title: string
   category: 'Task' | 'Random Thought' | 'Idea'
   content: string
+}
+export interface Note extends EditedNote {
   archived: boolean
   createdAt: string
 }
-
 export interface NoteState {
   value: Note[]
 }
+
+export interface FormValues {
+  title: string
+  category: 'Task' | 'Random Thought' | 'Idea'
+  content: string
+}
+
+export type FormReturn =
+  | [
+      FormValues,
+      (
+        e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLSelectElement>
+      ) => void
+    ]

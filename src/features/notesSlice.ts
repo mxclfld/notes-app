@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import notes from '../data/notes.json'
-import { Note, NoteState } from '../app/types'
+import { EditedNote, Note, NoteState } from '../app/types'
 
 const initialState: NoteState = {
   value: notes as Note[],
@@ -13,10 +13,15 @@ export const notesSlice = createSlice({
     addNote: (state, action: PayloadAction<Note>) => {
       state.value.push(action.payload)
     },
-    editNote: (state, action: PayloadAction<Note>) => {
+    editNote: (state, action: PayloadAction<EditedNote>) => {
       const myNote = state.value.find((note) => note.id === action.payload.id)!
       const index = state.value.indexOf(myNote)
-      state.value[index] = action.payload
+      state.value[index] = {
+        ...state.value[index],
+        title: action.payload.title,
+        category: action.payload.category,
+        content: action.payload.content,
+      }
     },
     archiveNote: (state, action: PayloadAction<string>) => {
       const myNote = state.value.find((note) => note.id === action.payload)
