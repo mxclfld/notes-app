@@ -36,22 +36,26 @@ export default function TableRow({ data }: TableRowProps): JSX.Element {
           size="sm"
           onClick={(e) => dispatch(archiveNote(data.id))}
         >
-          Archive
+          {data.archived ? 'Unarchive' : 'Archive'}
         </Button>
-        <Button
-          variant="warning"
-          size="sm"
-          onClick={(e) => handleClick(data.id)}
-        >
-          Edit
-        </Button>
-        <Button
-          variant="danger"
-          size="sm"
-          onClick={(e) => dispatch(deleteNote(data.id))}
-        >
-          Delete
-        </Button>
+        {data.archived ? null : (
+          <>
+            <Button
+              variant="warning"
+              size="sm"
+              onClick={(e) => handleClick(data.id)}
+            >
+              Edit
+            </Button>
+            <Button
+              variant="danger"
+              size="sm"
+              onClick={(e) => dispatch(deleteNote(data.id))}
+            >
+              Delete
+            </Button>
+          </>
+        )}
       </td>
     </tr>
   )
