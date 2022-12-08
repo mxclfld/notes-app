@@ -14,13 +14,15 @@ export const notesSlice = createSlice({
       state.value.push(action.payload)
     },
     editNote: (state, action: PayloadAction<Note>) => {
-      state.value[action.payload.id] = action.payload
+      const myNote = state.value.find((note) => note.id === action.payload.id)!
+      const index = state.value.indexOf(myNote)
+      state.value[index] = action.payload
     },
-    archiveNote: (state, action: PayloadAction<number>) => {
+    archiveNote: (state, action: PayloadAction<string>) => {
       const myNote = state.value.find((note) => note.id === action.payload)
       myNote!.archived = !myNote!.archived
     },
-    deleteNote: (state, action: PayloadAction<number>) => {
+    deleteNote: (state, action: PayloadAction<string>) => {
       state.value = state.value.filter((note) => note.id === action.payload)
     },
   },

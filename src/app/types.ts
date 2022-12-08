@@ -1,5 +1,7 @@
+import { ChangeEvent } from 'react'
+
 export interface Note {
-  id: number
+  id: string
   title: string
   category: 'Task' | 'Random Thought' | 'Idea'
   content: string

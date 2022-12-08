@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "a261f5c3-9f89-45ac-afaf-f85a50aca3e9",
     "title": "Code",
     "category": "Task",
     "content": "Finish my assingment in coding",
@@ -8,7 +8,7 @@
     "createdAt": "2022-12-01T17:53:27.128Z"
   },
   {
-    "id": 2,
+    "id": "742e8bf2-4bfa-474e-a656-b2c036900bba",
     "title": "Why",
     "category": "Random Thought",
     "content": "Why do we exist?",
@@ -16,7 +16,7 @@
     "createdAt": "2022-11-01T17:53:27.128Z"
   },
   {
-    "id": 3,
+    "id": "d0458cf8-fadd-485f-b8d1-21579e55a866",
     "title": "Read about destructuring objects",
     "category": "Idea",
     "content": "Maybe if I learn to destructure objects, it would be easier for me",
