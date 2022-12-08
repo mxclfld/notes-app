@@ -28,7 +28,7 @@ export const notesSlice = createSlice({
       myNote!.archived = !myNote!.archived
     },
     deleteNote: (state, action: PayloadAction<string>) => {
-      state.value = state.value.filter((note) => note.id === action.payload)
+      state.value = state.value.filter((note) => note.id !== action.payload)
     },
   },
 })

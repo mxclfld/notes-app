@@ -43,14 +43,14 @@ export default function TableRow({ data }: TableRowProps): JSX.Element {
             <Button
               variant="warning"
               size="sm"
-              onClick={(e) => handleClick(data.id)}
+              onClick={() => handleClick(data.id)}
             >
               Edit
             </Button>
             <Button
               variant="danger"
               size="sm"
-              onClick={(e) => dispatch(deleteNote(data.id))}
+              onClick={() => dispatch(deleteNote(data.id))}
             >
               Delete
             </Button>
