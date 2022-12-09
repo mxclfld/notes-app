@@ -1,3 +1,9 @@
+# About application
+
+This is notes SPA (Single Page Application).\
+You can add, edit, archive and delete notes (perform CRUD operations).\
+Used stack: Typescript, React, React-Bootstrap, React-Router, Redux.\
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
