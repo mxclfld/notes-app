@@ -3,10 +3,11 @@ import Container from 'react-bootstrap/Container'
 import Form from '../components/Form'
 import Table from '../components/Table/Table'
 import { Note } from '../app/types'
+import sortByDate from '../utils/sortByDate'
 
 export default function ActiveNotes() {
   const notes = useAppSelector((store) => store.notes.value)
-  const activeNotes: Note[] = notes.filter((note) => !note.archived)
+  const activeNotes: Note[] = sortByDate(notes.filter((note) => !note.archived))
   const headers = ['', 'Title', 'Category', 'Content', 'Created At', 'Actions']
   return (
     <div>
