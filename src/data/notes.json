@@ -22,5 +22,37 @@
     "content": "Maybe if I learn to destructure objects, it would be easier for me",
     "archived": true,
     "createdAt": "2022-10-01T17:53:27.128Z"
+  },
+  {
+    "id": "92611e24-f1ab-4b84-bf3e-51d3c48a4d06",
+    "title": "Random note",
+    "category": "Random Thought",
+    "content": "Random text",
+    "archived": false,
+    "createdAt": "2022-11-02T17:53:27.128Z"
+  },
+  {
+    "id": "277623df-1cb7-4dec-b213-78ff1eab3c20",
+    "title": "Course work",
+    "category": "Task",
+    "content": "Finish my course work on Software Engineering",
+    "archived": false,
+    "createdAt": "2022-11-03T17:53:27.128Z"
+  },
+  {
+    "id": "b71fe969-1504-4a58-b901-ac854fdba05e",
+    "title": "My idea",
+    "category": "Idea",
+    "content": "Idea text",
+    "archived": false,
+    "createdAt": "2022-10-04T17:53:27.128Z"
+  },
+  {
+    "id": "2ab27622-0c9e-4e52-a757-ea99735a334e",
+    "title": "Talk with parents",
+    "category": "Task",
+    "content": "I didn't call my parents in a while. I should do it sometime",
+    "archived": false,
+    "createdAt": "2022-11-05T17:53:27.128Z"
   }
 ]
