@@ -1,7 +1,8 @@
 interface TableCellProps {
-  text: string
+  value: string | JSX.Element
+  className?: string
 }
 
-export default function TableCell({ text }: TableCellProps) {
-  return <td>{text}</td>
+export default function TableCell({ value, className = '' }: TableCellProps) {
+  return <td className={className}>{value}</td>
 }

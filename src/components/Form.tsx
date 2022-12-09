@@ -1,4 +1,4 @@
-import { useAppDispatch, useForm } from '../app/hooks'
+import { useAppDispatch, useAppSelector, useForm } from '../app/hooks'
 import Container from 'react-bootstrap/Container'
 import FormBs from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -7,7 +7,8 @@ import { addNote, editNote } from '../features/notesSlice'
 import { v4 } from 'uuid'
 import { useState } from 'react'
 import { BsExclamationCircleFill } from 'react-icons/bs'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import { FormValues } from '../app/types'
 
 interface FormProps {
   edit?: boolean
@@ -15,20 +16,27 @@ interface FormProps {
 
 export default function Form({ edit = false }: FormProps) {
   const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const [warning, setWarning] = useState('')
-  const [values, handleChange] = useForm({
-    title: '',
-    category: 'Task',
-    content: '',
-  })
 
   const { noteId } = useParams()
+  const note = useAppSelector((store) => store.notes.value).find(
+    (note) => note.id === noteId
+  )
+
+  const initialValue = note
+    ? { title: note.title, category: note.category, content: note.content }
+    : ({
+        title: '',
+        category: 'Task',
+        content: '',
+      } as FormValues)
+  const [values, handleChange] = useForm(initialValue)
 
   const handleAddButtonClick = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault()
-    console.log(edit)
     if (values.title && values.category && values.content) {
       edit
         ? dispatch(
@@ -49,6 +57,7 @@ export default function Form({ edit = false }: FormProps) {
               createdAt: new Date().toISOString(),
             })
           )
+      navigate('/')
     } else {
       setWarning('Please, provide Title and Content of your note!')
 

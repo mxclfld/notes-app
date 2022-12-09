@@ -6,12 +6,20 @@ export interface EditedNote {
   category: 'Task' | 'Random Thought' | 'Idea'
   content: string
 }
+
 export interface Note extends EditedNote {
   archived: boolean
   createdAt: string
 }
+
 export interface NoteState {
   value: Note[]
+}
+
+export interface StatsRow {
+  category: 'Task' | 'Random Thought' | 'Idea'
+  active: number
+  archived: number
 }
 
 export interface FormValues {
